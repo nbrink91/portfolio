@@ -10,9 +10,13 @@
         <link rel="mask-icon" href="{{ asset("assets/safari-pinned-tab.svg") }}">
         <meta name="theme-color" content="#c90000">
 
-        <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}" />
-        <link rel="stylesheet" href="{{ asset("assets/css/ie8.css") }}" />
-        <link rel="stylesheet" href="{{ asset("assets/css/ie9.css") }}" />
+        {% stylesheets
+            'assets/css/*.css'
+            filter='uglifycss'
+            filter='cssrewrite'
+            output='combined/css/main.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
     </head>
     <body class="loading">
         <div id="wrapper">
@@ -44,7 +48,7 @@
         {% javascripts
             'assets/js/*.js'
             filter="?uglifyjs2"
-            output="combined/js/main.js"%}
+            output="combined/js/main.js" %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
         <script>

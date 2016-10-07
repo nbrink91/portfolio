@@ -76,3 +76,5 @@ assetic:
         cssrewrite: ~
         uglifyjs2:
             bin: /usr/local/bin/uglifyjs
+        uglifycss:
+            bin: /usr/local/bin/uglifycss
