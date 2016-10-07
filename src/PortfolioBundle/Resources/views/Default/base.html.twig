@@ -3,16 +3,16 @@
         <title>Nicholas Brink Portfolio</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="{{ asset("assets/js/html5shiv.js") }}"></script>
-        <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}" />
-        <link rel="stylesheet" href="{{ asset("assets/css/ie8.css") }}" />
-        <link rel="stylesheet" href="{{ asset("assets/css/ie9.css") }}" />
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset("assets/apple-touch-icon.png") }}">
         <link rel="icon" type="image/png" href="{{ asset("assets/favicon-32x32.png") }}" sizes="32x32">
         <link rel="icon" type="image/png" href="{{ asset("assets/favicon-16x16.png") }}" sizes="16x16">
         <link rel="manifest" href="{{ asset("assets/manifest.json") }}">
         <link rel="mask-icon" href="{{ asset("assets/safari-pinned-tab.svg") }}">
         <meta name="theme-color" content="#c90000">
+
+        <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}" />
+        <link rel="stylesheet" href="{{ asset("assets/css/ie8.css") }}" />
+        <link rel="stylesheet" href="{{ asset("assets/css/ie9.css") }}" />
     </head>
     <body class="loading">
         <div id="wrapper">
@@ -22,7 +22,7 @@
                 {# Header #}
                 <header id="header">
                     <h1>Nicholas Brink</h1>
-                    <p>Programmer/Analyst</p>
+                    <p>Web Developer &bull; PHP &bull; Symfony</p>
                     <nav>
                         <ul>
                             <li><a href="https://twitter.com/nbrink91" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -36,12 +36,17 @@
 
                 {# Footer #}
                 <footer id="footer">
-                    <span class="copyright">&copy; Nicholas Brink</span>
+                    <span class="copyright">&copy; 2016 Nicholas Brink</span>
                 </footer>
             </div>
         </div>
 
-        <script src="{{ asset("assets/js/respond.min.js") }}"></script>
+        {% javascripts
+            'assets/js/*.js'
+            filter="?uglifyjs2"
+            output="combined/js/main.js"%}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         <script>
             window.onload = function() { document.body.className = ''; }
             window.ontouchmove = function() { return false; }
