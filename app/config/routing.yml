@@ -7,3 +7,10 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
     prefix: /app
+
+home_redirect:
+    path: /portfolio
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: portfolio
+        permanent: true
