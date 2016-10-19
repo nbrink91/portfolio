@@ -12,5 +12,5 @@ home_redirect:
     path: /portfolio
     defaults:
         _controller: FrameworkBundle:Redirect:redirect
-        route: portfolio
+        route: portfolio_default_index
         permanent: true
